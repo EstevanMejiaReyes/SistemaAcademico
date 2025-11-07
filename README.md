@@ -1,56 +1,83 @@
-# Sistema Academico
+# Sistema Académico
 
-Proyecto de gestión académica desarrollado en Java + MySQL.
+Proyecto de gestión académica desarrollado en **Java + MySQL**, que permite administrar estudiantes, docentes, cursos, calificaciones y asistencias.
+
+---
 
 ## Descripción
-Este sistema permite gestionar estudiantes, docentes, cursos, asistencias y calificaciones.  
-Incluye una interfaz gráfica (Swing) básica para realizar operaciones CRUD y reportes simples.
+Este sistema fue creado para facilitar la administración académica de una universidad.  
+Permite realizar operaciones CRUD (crear, leer, actualizar y eliminar) de estudiantes y docentes, además de manejar cursos, calificaciones y reportes automáticos.
 
-## Tecnologías
-- Java (JDK [versión])  
-- MySQL  
-- JDBC (conector `mysql-connector-j-8.0.33.jar`)  
-- Swing para la interfaz de usuario  
-- Procedimientos almacenados en MySQL para lógica de negocio  
+---
 
-## Características principales
-- Gestión de **Estudiantes**  
-    - Crear, leer, actualizar, eliminar  
-    - Validaciones de duplicados (identificación y correo institucional)  
-- Gestión de **Docentes**  
-- Gestión de **Cursos**  
-- Registro de **Asistencias**  
-- Registro de **Calificaciones**  
-- Reportes generados mediante vistas SQL para facilitar consultas  
+## Tecnologías utilizadas
+- **Java (JDK 17 o superior)**
+- **MySQL 8.0+**
+- **JDBC** (Conector: `mysql-connector-j-8.0.33.jar`)
+- **Swing** (Interfaz gráfica)
+- **Procedimientos almacenados** y **vistas SQL**
+
+---
 
 ## Estructura del proyecto
-/SistemaUniversidad
-├─ src/
-│ ├─ modelo/ <- Clases de dominio y DAO
-│ ├─ controlador/ <- Lógica de control y conexión entre GUI y modelo
-│ └─ vista/ <- Interfaz de usuario (ventanas Swing)
-├─ lib/ <- Librerías externas (conector MySQL)
-├─ bin/ <- Archivos compilados (no se recomienda subir)
-└─ control-academico.sql <- Script SQL para crear la base de datos y estructuras
 
-## Configuración y ejecución
-1. Importar el script `control-academico.sql` en MySQL para crear la base de datos, tablas, vistas y procedimientos.  
-2. En el archivo `modelo/Conexion.java`, actualizar los parámetros de conexión:
-   ```java
-   jdbc:mysql://localhost:3306/`control-academico`?useSSL=false&serverTimezone=UTC  
-   usuario: root  
-   contraseña: 1113519549  
+```
+/SistemaAcademico  
+├─ src/  
+│  ├─ modelo/        → Clases y conexión a base de datos  
+│  ├─ controlador/   → Lógica entre la vista y el modelo  
+│  └─ vista/         → Interfaz de usuario (Swing)  
+├─ lib/              → Librerías (conector MySQL)  
+├─ bin/              → Archivos compilados  
+└─ control-academico.sql → Script para crear la base de datos
+```
 
-## Compila el proyecto
+---
+
+## Cómo ejecutar el proyecto
+
+### Crea la base de datos
+Ejecuta en MySQL:
+```sql
+CREATE DATABASE `control-academico`;
+USE `control-academico`;
+SOURCE control-academico.sql;
+```
+
+### Configura la conexión
+En `modelo/Conexion.java`, revisa estos datos:
+```java
+jdbc:mysql://localhost:3306/control-academico
+usuario: root
+contraseña: (tu contraseña)
+```
+
+### Compila
+Desde la terminal (en la raíz del proyecto):
+```bash
 javac -cp ".;lib/mysql-connector-j-8.0.33.jar" -d bin src/modelo/*.java src/controlador/*.java src/vista/*.java
+```
 
-## Ejecuta el proyecto
-java -cp ".;bin;lib/*" vista.Main
+### Ejecuta
+```bash
+java -cp ".;lib/mysql-connector-j-8.0.33.jar;bin" vista.VentanaEstudiantes
+```
 
-Consideraciones
+---
 
-Actualmente la interfaz gráfica tiene funcionalidad básica. Se recomienda añadir formularios más completos para docente, curso, etc.
+## Características
+- Registro y validación de estudiantes.
+- Gestión de docentes y cursos.
+- Reportes automáticos con vistas SQL.
+- Control de asistencia y calificaciones.
 
-Asegúrese de que el conector de MySQL se encuentre en la carpeta lib y esté actualizado.
+---
 
-Las vistas en la base de datos permiten reportes rápidos sin escribir consultas complejas desde la interfaz.
+## Autor
+**Joan Estevan Mejía Reyes**  
+jestevanmejia@estudiante.uniajc.edu.co  
+GitHub: [EstevanMejiaReyes](https://github.com/EstevanMejiaReyes)
+
+---
+
+*Sistema Académico - UniAJC © 2025*
