@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch SistemaUniversidad (Main)",
+            "request": "launch",
+            "mainClass": "vista.Main",
+            "classPaths": [
+                "bin",
+                "lib/mysql-connector-j-9.4.0.jar"
+                
+                
+            ]
+        }
+    ]
+}
