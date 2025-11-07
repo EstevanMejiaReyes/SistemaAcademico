@@ -1,0 +1,14 @@
+# Archivos compilados
+/bin/
+*.class
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Librerías externas
+/lib/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
