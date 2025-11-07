@@ -49,7 +49,7 @@ En `modelo/Conexion.java`, revisa estos datos:
 ```java
 jdbc:mysql://localhost:3306/control-academico
 usuario: root
-contraseña: (tu contraseña)
+contraseña: (1113519549)
 ```
 
 ### Compila
@@ -60,8 +60,7 @@ javac -cp ".;lib/mysql-connector-j-8.0.33.jar" -d bin src/modelo/*.java src/cont
 
 ### Ejecuta
 ```bash
-java -cp ".;lib/mysql-connector-j-8.0.33.jar;bin" vista.VentanaEstudiantes
-```
+java -cp ".;bin;lib/*" vista.Main```
 
 ---
 
